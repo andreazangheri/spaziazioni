@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Crea, esplora, partecipa">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>—</title>
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="spazi(*)azioni">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="spazi(*)azioni">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+  <!-- Safari and iOS-->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="mask-icon" href="assets/icon/safari-pinned-tab.svg" color="#333333">
+  <link rel="apple-touch-startup-image" href="assets/icon/apple-icon-precomposed.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/icon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/icon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/icon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/icon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/icon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/icon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/icon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/icon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-icon-180x180.png">
+  <!-- Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon/android-chrome-192x192.png">
+  <!-- For IE 11, Chrome, Firefox, Safari, Opera -->
+  <link rel="icon" href="assets/icon/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="assets/icon/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/icon/favicon-48x48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="assets/icon/favicon-96x96.png" sizes="96x96" type="image/png">
+  <!-- Windows  -->
+  <meta name="msapplication-TileImage" content="assets/icon/ms-icon-70x70.png">
+  <meta name="msapplication-TileImage" content="assets/icon/ms-icon-144x144.png">
+  <meta name="msapplication-TileImage" content="assets/icon/ms-icon-150x150.png">
+  <meta name="msapplication-TileImage" content="assets/icon/ms-icon-310x310.png">
+  <!-- Style -->
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet" />
+
+<style>
+.geocoder {
+		position: absolute;
+		z-index: 1;
+		width: 50%;
+		left: 50%;
+		margin-left: -25%;
+		top: 20px;
+	}
+	.mapboxgl-ctrl-geocoder {
+		min-width: 100%;
+	}
+</style>
+</head>
+
+<body id="body">
+	<header class="header header__list">
+		<ul class="header_pad">
+			<li class="header_desktop">
+				<a class="link-black" id="spazioBtnDesktop" onclick="location.reload()" href="#">
+					<h4>spazi(*)azioni</h4>
+				</a>
+			</li>
+			<li class="header_mobile">
+				<a class="link-black" id="spazioBtnMobile" onclick="location.reload()" href="#">
+					<h4>(*)</h4>
+				</a>
+			</li>
+		</ul>
+		<ul class="header_pad header__list-right">
+		<a class="clock" id="clock">
+		</a>
+		</ul>
+	</header>
+	<div class="evento" id="info">
+  <span class="close">&times;</span>
+	<div class="evento-scontenuto" id="infoBox">
+    <div class="right" style="overflow: auto;">
+      <div class="form">
+			<div class="full">
+        <div style="margin-bottom: 3vh; font-size: 3em; font-weight: bold; margin-top: 3vh;" id="countdown"></div>
+					<!--<p style="line-height: 1.3em;">Sabato 23 e Domenica 24 Febbraio<br>
+					48 h per creare spazi, esperienze, relazioni.<br>
+
+					Le spaziazioni inizieranno dalle 00:00 di Sabato 23 fino alle 23:59 di Domenica 24.<br>
+
+					Sarai libero di prendere parte creando degli eventi temporanei su questo sito.<br>
+
+          Se vorrai potrai osservare altri creare spazi di relazione oppure essere tu a crearne di altri.<br>
+
+</p>-->
+<p style="font-weight: bold; font-size: 32px; margin-top: 3vh;">Istruzioni</p>
+<p style="font-weight: bold; margin-top: 3vh;">Creare spaziazioni</p>
+        <ul style="margin-top: 1vh; line-height: 1.3em;">
+          <li>
+            *.
+            <span>
+              Il soggetto è pregato di creare spaziazioni solo se intende parteciparvi in prima persona.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Dopo aver digitato il luogo della spaziazione, fare attenzione a selezionarlo tra i suggerimenti disponibili nella finestra a discesa.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+             Immettere un breve nome.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Indicare una o più azioni da fare eseguire ai partecipanti.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Creare la spaziazione.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Partecipare.
+            </span>
+          </li>
+        </ul>
+        <p style="font-weight: bold; margin-top: 3vh;">Partecipare alle spaziazioni</p>
+        <ul style="margin-top: 1vh; line-height: 1.3em;">
+          <li>
+            *.
+            <span>
+              Guarda dentro e intorno. <a class="link-black" href="spaziazioni.me">spaziazioni.me</a> è ambiente esplorabile.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Scegliere un evento a cui prendere parte e recarsi nel luogo indicato.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Se la posizione è corretta, sulla scheda dell’evento verranno svelate delle azioni da compiere.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Altrimenti è possibile toccare l’indirizzo per aprire il percorso su mappe.
+            </span>
+          </li>
+          <li>
+            *.
+            <span>
+              Sul luogo dell’evento documentalo caricando una o più immagini oppure qualche secondo di video.
+            </span>
+          </li>
+        </ul>
+        <p style="margin-top: 3vh; line-height: 1.3em">Partecipa attivamente per tutto il tempo che sentirai necessario.<br>
+          Avrai la possibilità di relazionarti con ciò che ti è intorno finché vorrai.</p>
+        <div style="margin: 2vh 0;">
+          <ul>
+          <li>
+            <input type="button" value="entra" class="loginLogout" id="entra" href="#">
+          </li>
+          <li>
+            <input type="button" value="esci" class="loginLogout hide" id="esci" href="#">
+          </li>
+        </ul>
+        </div>
+				<!--<p style="line-height: 1.3em; border-top: 4px solid black; margin: 3vh 3vw 3vh 0; padding-top: 3vh; font-size: 10px" class="footer-small">Progetto sviluppato all'Accademia di Belle Arti di Urbino * Dipartimento di Progettazione e Arti
+					Applicate * Scuola di Nuove Tecnologie dell'Arte * Diploma Accademico
+					di Primo Livello * Tesi di Diploma in Progettazione Multimediale * Relatore Marcello Signorile * Allievo Andrea
+					Zangheri * a.a. 2017/2018 * Sessione Straordinaria</p>
+				</div>-->
+		</div>
+	</div>
+</div>
+</div>
+</div>
+	<div class="evento" id="evento">
+	<span class="close">&times;</span>
+	<div class="evento-scontenuto" id="eventoScontBox">
+	<div class="right" id="right">
+		<div class="form">
+			<form action="" id="nuovoEvento">
+				<div style="margin-bottom: 2vh;">
+					<div><span>[*] </span><span class="keyLengthNumeroCrea" id="keyLengthNumeroCrea"></span></div>
+					<div style="position: absolute; right: 28px; top: 20px;"><span>[•] </span><span class="partecipantiNumeroCrea" id="partecipantiNumeroCrea"></span></div>
+				</div>
+				<div id="map" style="display: none"></div>
+				<input class="form__input cosa" form="nuovoEvento" type="text" id="cosa" placeholder="Cosa" maxlength="30" required><br/>
+        <label>quando</label>
+          <input class="form__input quando" form="nuovoEvento" type="text" id="quandoGiorno" value="__" placeholder="__" required><span>/</span>
+          <input class="form__input quando" form="nuovoEvento" type="text" id="quandoMese" value="__" placeholder="__" required><br/>
+        <label>ora </label>
+          <input class="form__input daOra" form="nuovoEvento" type="text" id="daOra" placeholder="__" required maxlength="2" required><span>—</span>
+          <input class="form__input aOra" form="nuovoEvento" type="text" id="aOra" placeholder="__" required maxlength="2" required><br/>
+        <label class="azioneLabel">*</label><input class="form__input azioneUno" form="nuovoEvento" type="text" id="azioneUno" placeholder="azione 1" maxlength="30" required><br/>
+        <label class="azioneLabel">*</label><input class="form__input azioneDue" form="nuovoEvento" type="text" id="azioneDue" placeholder="azione 2" maxlength="30" ><br/>
+        <label class="azioneLabel">*</label><input class="form__input azioneTre" form="nuovoEvento" type="text" id="azioneTre" placeholder="azione 3" maxlength="30" ><br/>
+				<input class="form__input inserisciEvento" form="nuovoEvento" type="submit" id="inserisciEvento" value="crea" />
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="evento" id="cerca">
+	<span class="close">&times;</span>
+	<div class="evento-scontenuto" id="cercaBox">
+		<div class="full">
+		<input type="text" id="cercaBarra" onkeyup="cercaEventi()" placeholder="Cerca spaziazioni...">
+		</div>
+	</div>
+</div>
+
+<div class="evento" id="eventoEventi">
+	<span class="close">&times;</span>
+	<div class="evento-scontenuto__no-flex">
+    <div class="right">
+      <div class="form" id="eventoEventiBox">
+        <div id="eventoEventi__partecipare" style="display: none"></div>
+        <div id="xdem"></div>
+        <div id="galleriaStorage"></div>
+      </div>
+    </div>
+	</div>
+</div>
+<!-- Modal -->
+
+<div class="evento" id="barraFile">
+	<span class="close">&times;</span>
+      <p style="font-size: 32px; position: relative; float: left; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 3vh 3vw;" id="progressoTesto"></p>
+</div>
+	<footer class="footer">
+		<ul class="footer__list">
+			<li class="footer__list_pad footer__list-left">
+				<a class="link-black" id="infoBtn" href="#"><h4>?</h4></a>
+			</li>
+			<li class="footer__list_pad">
+				<span class="link-black" href="#"><h4>v.0.6.1 (beta)</h4></span>
+			</li>
+			<li class="footer__list_pad">
+				<a class="link-black" id="creaBtn" href="#"><h4>crea</h4></a>
+			</li>
+		</ul>
+		<div class="barraProgresso footer__list-left" id="barraProgresso">
+			<div class="barraProgresso__barra" id="barraProgresso__barra"></div>
+		</div>
+	</footer>
+		<div id="container" style="width: 100%;height: 100%;padding: 0;margin: 0;position: fixed;"></div>
+ <!-- Firebase -->
+ <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-storage.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-messaging.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-functions.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- MAPBOX API -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css'
+type='text/css' />
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+<script>
+ MY_ACCESS_TOKEN = 'pk.eyJ1IjoidHlwZXJyb3IiLCJhIjoiY2pzMmk5OTEzMDZ6ZDQ0dDlhOXZ1ZmpiaCJ9.mcgUo3mvobOjbzdYg6lxUQ';
+ var mapboxClient = mapboxSdk({ accessToken: MY_ACCESS_TOKEN });
+</script>
+<script>
+var eventoBox = document.getElementById("evento");
+var eventoEventi = document.getElementById("eventoEventi");
+var infoBox = document.getElementById("info");
+var eventoScontBox = document.getElementById("eventoScontBox");
+var infoScontBox = document.getElementById("infoBox");
+var cerca = document.getElementById("cerca");
+var cercaBarra = document.getElementById("cercaBarra");
+var btnCrea = document.getElementById("creaBtn");
+var btnCerca = document.getElementById("cercaBtn");
+var btnInfo = document.getElementById("infoBtn");
+var inserisciEvento = document.getElementById("inserisciEvento");
+var closeEventoBox = document.getElementsByClassName("close")[1];
+var closeInfoBox = document.getElementsByClassName("close")[0];
+var closeCercaBox = document.getElementsByClassName("close")[2];
+var closeEventoEventi = document.getElementsByClassName("close")[3];
+var closeEventoEventiFile = document.getElementsByClassName("close")[4];
+var right = document.getElementById("right");
+var x = document.getElementById("xdem");
+var form = document.getElementById("nuovoEvento");
+//var daOra = document.getElementById("daOra");
+//var aOra = document.getElementById("aOra");
+var entraButton = document.getElementById("entra");
+var esciButton = document.getElementById("esci");
+
+var dataOggiNow = new Date();
+var dataOggiDate = dataOggiNow.getDate();
+var dataTarget = new Date(2019, 02, 17);
+var dataTargetDate = dataTarget.getDate();
+
+var coordinatePartecipante;
+
+var config = {
+		apiKey: "AIzaSyBhtQWfujAq7c2N8JCbSxQkUrbTI6yZzb4",
+		authDomain: "spaziazioni.firebaseapp.com",
+		databaseURL: "https://spaziazioni.firebaseio.com",
+		projectId: "spaziazioni",
+		storageBucket: "spaziazioni.appspot.com",
+		messagingSenderId: "470660232727"
+	};
+
+// Inizializza Firebase
+firebase.initializeApp(config);
+</script>
+
+<!-- Three js -->
+<script src="js/lib/three.js"></script>
+<script src="js/lib/WebGL.js"></script>
+<script src="js/lib/DeviceOrientationController.js"></script>
+
+<script>
+if (WEBGL.isWebGLAvailable() === false) {
+	document.body.appendChild(WEBGL.getWebGLErrorMessage());
+}
+
+var camera, controls, scene, renderer, container, clock;
+
+var textlabels = [];
+var mouseX= 0, mouseY = 0;
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+
+function onReady() {
+scene = new THREE.Scene();
+renderer = new THREE.WebGLRenderer({ alpha: true });
+//renderer.setClearColor(0xf2f2f2);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+container = document.getElementById("container");
+container.appendChild(renderer.domElement);
+
+camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 10000);
+camera.position.z = 500;
+
+controls = new DeviceOrientationController(this.camera, this.renderer.domElement);
+controls.connect();
+
+	clock = new THREE.Clock();
+	controls.enableDamping = true;
+	controls.dampingFactor = 0.25;
+	controls.enableZoom = true;
+	controls.enablePan = true;
+	controls.enableKeys = true;
+
+  //duplicazione eventi on || once
+	var query = firebase.database().ref("eventi").once("value", function (snapshot) {
+		//console.log(snapshot.val());
+		//console.log(Object.keys(snapshot.val()));
+		var length = snapshot.val()
+		var dbLength = Object.keys(length).length;
+		console.log(dbLength);
+		//console.log(Object.values(snapshot.val()));
+		var valueObj = Object.values(snapshot.val());
+		console.log(valueObj[0].cosa);
+		snapshot.forEach(function (child) {
+		var childData = child.val();
+		var cosa = child.val().cosa;
+		var place = child.val().place;
+
+			// world
+			var geometry = new THREE.SphereBufferGeometry(5, 30, 30);
+				var material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 });
+				var mesh = new THREE.Mesh(geometry, material);
+				mesh.position.x = (Math.random() - 0.5) * 1000; //TODO GPS
+				mesh.position.y = (Math.random() - 0.5) * 1000;	//TODO GPS
+				mesh.position.z = (Math.random() - 0.5) * 1000;	//TODO GPS
+				mesh.updateMatrix();
+				mesh.matrixAutoUpdate = false;
+				scene.add(mesh);
+
+				var helperGeometry = new THREE.SphereBufferGeometry(5000, 10, 10);
+				var helperMaterial = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, transparent: true, opacity: 0.1});
+				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
+				scene.add(helper);
+
+// =============== THIS IS CRITICAL =============== //
+
+				var eventoTesto = creaEventoTesto();
+				//console.log(eventoTesto);
+				eventoTesto.setHTML(cosa);
+				eventoTesto.setParent(mesh);
+
+// =============== THIS IS CRITICAL =============== //
+
+				// listen for new data in firebase
+
+				this.textlabels.push(eventoTesto);
+				this.container.appendChild(eventoTesto.element);
+
+				function creaEventoTesto() {
+
+					var ahtml = document.createElement('a');
+					ahtml.className = 'link-black eventi_cerca';
+					for (var i = 0; i <= textlabels.length; i++){
+						var key = Object.keys(snapshot.val())[i];
+						//ahtml.setAttribute("id", "evento" + i);
+						ahtml.setAttribute("id", key);
+					}
+					ahtml.style.position = 'absolute';
+					ahtml.style.width = 100;
+					ahtml.style.height = 100;
+					ahtml.innerHTML = "hi there!"; // txt
+				  //ahtml.style.background = '#ffffff';
+					ahtml.style.padding = '15px';
+					ahtml.style.border = '4px solid black';
+					ahtml.style.top = -1000;
+					ahtml.style.left = -1000;
+					ahtml.setAttribute("href", "#");
+					ahtml.setAttribute("onclick", "eventiEvento(event)");
+
+					var _this = this;
+
+					return {
+						element: ahtml,
+						parent: false,
+						position: new THREE.Vector3(0, 0, 0),
+						setHTML: function (html) {
+							this.element.innerHTML = html;
+						},
+						setParent: function (threejsobj) {
+							this.parent = threejsobj;
+						},
+						updatePosition: function () {
+							if (parent) {
+								this.position.copy(this.parent.position);
+							}
+
+							var coords2d = this.get2DCoords(this.position, _this.camera);
+							this.element.style.left = coords2d.x + 'px';
+							this.element.style.top = coords2d.y + 'px';
+						},
+						get2DCoords: function (position, camera) {
+							var vector = position.project(camera);
+							vector.x = (vector.x + 1) / 2 * window.innerWidth;
+							vector.y = -(vector.y - 1) / 2 * window.innerHeight;
+							return vector;
+						}
+					};
+			}
+
+			function animate() {
+				controls.update();
+				renderer.render(scene, camera);
+				requestAnimationFrame(animate);
+				render();
+			}
+
+			animate();
+
+		function onResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		}
+
+		function onDocumentMouseMove(event) {
+			mouseX = ( event.clientX - windowHalfX );
+			mouseY = ( event.clientY - windowHalfY );
+		}
+
+		function render() {
+			//mesh.position.x += 0.1; //inserire numero random che oscilla tra positivo e negativo
+			//mesh.position.y += 0.1;
+			camera.position.x += ( mouseX - camera.position.x ) * 0.0001;
+			camera.position.y += ( mouseY - camera.position.y ) * 0.0001;
+			//camera.lookAt(scene.position); // commentare per lasciare la camera nel punto di esplorazione e non farla tornare al punto di partenza
+			for (var i = 0; i < textlabels.length; i++) {
+				textlabels[i].updatePosition();
+			}
+		}
+		document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+			window.addEventListener('resize', function () {
+				onResize();
+			}, false);
+		});
+		});
+	};
+
+	onReady();
+	controls.addEventListener('userinteractionstart', function () {
+		controls.element.style.cursor = 'normal';
+	});
+
+	controls.addEventListener('userinteractionend', function () {
+		controls.element.style.cursor = 'normal';
+	});
+	controls.enableManualZoom = true; // disable user manual scene pinch-to-zoom override
+
+		function cercaEventi() {
+			var input, filter, container, a, i, txtValue;
+			input = document.getElementById("cercaBarra");
+			filter = input.value.toUpperCase();
+			container = document.getElementById("container");
+			a = document.getElementsByClassName("eventi_cerca");
+			for (i = 0; i < a.length; i++) {
+				txtValue = a[i].textContent;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					a[i].style.display = "";
+					console.log(txtValue);
+				} else {
+					a[i].style.display = "none";
+				}
+			}
+}
+</script>
+<script src="js/main.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/ui.js"></script>
+</body>
+<script>
+	$("body").on("mousemove", function (event) {
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+		if (event.pageX < w/2 && event.pageY < h/2) {
+			$("body").css("cursor", "nw-resize");
+		} else if (event.pageX > w/2 && event.pageY < h/2) {
+			$("body").css("cursor", "ne-resize");
+		} else if (event.pageX < w/2 && event.pageY > h/2) {
+			$("body").css("cursor", "sw-resize");
+		} else if (event.pageX > w/2 && event.pageY > h/2) {
+			$("body").css("cursor", "se-resize");
+		} else {
+
+		}
+	});
+
+	var event;
+
+	var eventiEvento = function eventiEvento(event){
+		if (!event) event = window.event;
+		var currentID = event.target.id || event.srcElement.id;
+		//console.log(currentID);
+		$("#eventoEventi").css("display", "flex").fadeIn(3000);
+
+		var database = firebase.database();
+		var ref = database.ref("eventi");
+		ref.once("value", prendiDati, erroreDati);
+
+		// Get a reference to the storage service, which is used to create references in your storage bucket
+		var storage = firebase.storage();
+
+		// Create a storage reference from our storage service
+		var storageRef = storage.ref();
+
+		// Create a child reference
+		var imagesRef = storageRef.child('immagini');
+		// imagesRef now points to 'images'
+		// Child references can also take paths delimited by '/'
+
+		//var filename = 'immaginazione' + n + "jpg";
+
+		var audioRef = storageRef.child('audio');
+
+		var msgRef = storageRef.child('messaggi');
+
+		// Prendi dati
+		function prendiDati(data) {
+			//var a = $("#place").val();
+			//console.log(data.val()); // Oggetti child eventi
+			var eventi = data.val();
+			var keys = Object.keys(eventi);
+			var keyLength = keys.length + 1;
+			var keyLengthNumero;
+			for (var i = 0; i < keys.length; i++) {
+				var k = keys[i];
+				//console.log(k); // child chiavi database eventi
+				if ( k == currentID) {
+				var cosa = eventi[k].cosa;
+				var place = eventi[k].place;
+				var quandoGiorno = eventi[k].giorno;
+				var quandoMese = eventi[k].mese;
+				var da = eventi[k].from;
+				var to = eventi[k].to;
+				var partecipanti = eventi[k].partecipanti;
+				var numeroEvento = eventi[k].num;
+        var azioneUno = eventi[k].a1;
+        var azioneDue = eventi[k].a2;
+        var azioneTre = eventi[k].a3;
+				console.log(partecipanti);
+				if (eventi[k].coordinate) {
+				var coordinateEvento = {
+					lng: eventi[k].coordinate[0],
+					lat: eventi[k].coordinate[1]
+				}
+				console.log(cosa, place, quandoGiorno, quandoMese, coordinateEvento.lng, coordinateEvento.lat);
+			} else {
+				console.log(cosa, place, quandoGiorno, quandoMese);
+			}
+
+					if (keyLength > 9) {
+						keyLengthNumero = '[*] ' + numeroEvento;
+						$("#eventoEventiBox").prepend('<div style="margin-bottom: 2vh;">' + keyLengthNumero + '</div>');
+					} else {
+						keyLengthNumero = '[*] ' + numeroEvento;
+						$("#eventoEventiBox").prepend('<div style="margin-bottom: 2vh;">' + keyLengthNumero + '</div>');
+					}
+
+					if (partecipanti > 9) {
+						partecipantiNumero = '[•] ' + partecipanti;
+						$("#eventoEventiBox").prepend('<div id="partecipanti" style="margin-bottom: 2vh; position: absolute; right: 28px;">' + partecipantiNumero + '</div>');
+					} else {
+						partecipantiNumero = '[•] ' + partecipanti;
+						$("#eventoEventiBox").prepend('<div id="partecipanti" style="margin-bottom: 2vh; position: absolute; right: 28px;">' + partecipantiNumero + '</div>');
+					}
+
+				$("#eventoEventiBox").append('<div class="dove"><a class="link-black" href="#" onclick="mapsSelector()">' + place + "</a></div>");
+				$("#eventoEventiBox").append('<div class="cosa">' + cosa + "</div>");
+				$("#eventoEventiBox").append('<div class="quandoEvento"> quando ' + quandoGiorno + '/' + quandoMese + "</div>");
+        if ((da) || (to)) {
+          $("#eventoEventiBox").append('<div class="daOra">ora ' + da + ' — ' + to + "</div>");
+        }
+        $("#eventoEventiBox").append('<div id="risultatoPosizione"></div>');
+
+        if (azioneUno) {
+        $("#eventoEventiBox").append('<div class="azioneUnoEvento" id="azioneUnoEvento">' + '* ' + azioneUno + "</div>");
+        }
+        if (azioneDue) {
+        $("#eventoEventiBox").append('<div class="azioneDueEvento" id="azioneDueEvento">' + '* ' + azioneDue + "</div>");
+        }
+        if (azioneTre) {
+				$("#eventoEventiBox").append('<div class="azioneTreEvento" id="azioneTreEvento">' + '* ' + azioneTre + "</div>");
+        }
+
+				var coordinatePartecipante;
+
+        $("#eventoEventiBox").append('<button id="verificaPosizione" class="verificaPosizione">partecipa</button>');
+
+        var buttonVerificaPosizione = document.getElementById("verificaPosizione");
+
+        buttonVerificaPosizione.addEventListener('click', function () {
+          //$("#verificaPosizione").addClass("blink");
+          this.classList.add("hide");
+
+          getLocation();
+
+
+        }, false);
+
+					function getLocation() {
+						if (navigator.geolocation) {
+							navigator.geolocation.getCurrentPosition(showPosition, showError);
+							//navigator.geolocation.watchPosition(showPosition, showError);
+              $("#coordinateTotali").remove();
+              $("#coordinatePartecipanteLat").remove();
+              $("#coordinatePartecipanteLng").remove();
+              $("#coordinateEventoLat").remove();
+              $("#coordinateEventoLng").remove();
+
+						} else {
+							$("#eventoEventiBox").append("<div>" + "Attiva la geolocalizzazione per partecipare!" + "</div>");
+						}
+					}
+
+					function showPosition(position) {
+
+						coordinatePartecipante = {
+							lng: position.coords.longitude,
+							lat: position.coords.latitude
+						};
+
+						// Troncare numero per evitare troppa precisione (2 o 3 decimali)
+
+						function toFixed(num, fixed) {
+							var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+							return num.toString().match(re)[0];
+            }
+
+            // toFixed(coordinatePartecipante.lng, 3); SE CI SONO PROBLEMI CON LA GEOLOCALIZZAZIONE
+
+						var posizioneEvento = "<p>lng: " + toFixed(coordinateEvento.lng, 5) + "</p><p>lat: " + toFixed(coordinateEvento.lat, 5) + "</p>";
+						//var coordinateEventoMostra = $("#eventoEventiBox").append('<div id="coordinateEventoMostra"><p style="font-weight:bold;margin-bottom:0.5em;">Evento</p>' + posizioneEvento + '</div>');
+						$("#eventoEventiBox").append('<div id="coordinateEventoLat" style="display: none;">' + coordinateEvento.lat + '</div>');
+						$("#eventoEventiBox").append('<div id="coordinateEventoLng" style="display: none;">' + coordinateEvento.lng + '</div>');
+
+						var posizionePartecipante = "<p>lng: " + toFixed(coordinatePartecipante.lng, 5) + "</p><p>lat: " + toFixed(coordinatePartecipante.lat, 5) + "</p>";
+						//var coordinatePartecipanteMostra = $("#eventoEventiBox").append('<div id="coordinatePartecipanteMostra"><p style="font-weight:bold;margin-bottom:0.5em;">Tu</p>' + posizionePartecipante + '</div>');
+            $("#eventoEventiBox").append('<div id="coordinatePartecipanteLat" style="display: none;">' + coordinatePartecipante.lat + '</div>');
+            $("#eventoEventiBox").append('<div id="coordinatePartecipanteLng" style="display: none;">' + coordinatePartecipante.lng + '</div>');
+
+            coordinateTotali = $("#eventoEventiBox").append('<div id="coordinateTotali" style="margin-top: 2vh;"><div id="coordinateEventoMostra"><p style="font-weight:bold;margin-bottom:0.5em;">Evento</p>' + posizioneEvento + '</div>' + '<div id="coordinatePartecipanteMostra"><p style="font-weight:bold;margin-bottom:0.5em;">Tu</p>' + posizionePartecipante + '</div></div>');
+            //coordinateTotali = $("#eventoEventiBox").append('<div id="coordinateTotali" style="margin-top: 2vh;"></div>');
+
+						var lngPartecipanteString = toFixed(coordinatePartecipante.lng, 3);
+						var lngEventoString = toFixed(coordinateEvento.lng, 3);
+
+						var latPartecipanteString = toFixed(coordinatePartecipante.lat, 3);
+						var latEventoString = toFixed(coordinateEvento.lat, 3);
+
+            //GET IP
+
+              $(function() {
+                $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+                  function (json) {
+                    console.log("My public IP address is: ", json.ip);
+                  }
+                );
+              });
+
+						if ((lngPartecipanteString == lngEventoString) && (latPartecipanteString == latEventoString)) {
+              // INSERIRE BOTTONE SUMBIT FIREBASE
+
+              // SE UTENTE È REGISTRATO NEL DATABASE NON AUMENTARE DI 1 IL CONTEGGIO PARTECIPAZIONI
+/*
+              var userId = firebase.auth().currentUser.uid;
+              console.log(userId);
+
+                var eventiRef = firebase.database().ref('eventi');
+                var currentIdRef = eventiRef.child(currentID);
+                var userRef = currentIdRef.child('users');
+                if (userRef) {
+                  // update the array
+                } else {
+                  // create the array
+                var newUserRef = userRef.push();
+                newUserRef.set({
+                  user: userId
+                });
+              }
+
+*/
+              // GET FILES STORAGE
+
+              var storageRef = firebase.storage().ref();
+              //var spaceRef = storageRef.child('immagini/' + cosa);
+              //var path = spaceRef.fullPath;
+              var gsReference = storage.refFromURL('gs://spaziazioni.appspot.com')
+
+              //var nomeFileStorage = str.startsWith(cosa);
+
+              var databaseRef = firebase.database().ref('eventi').child(currentID).child('partecipanti');
+
+              databaseRef.transaction(function (partecipanti) {
+                if (partecipanti) {
+                  partecipanti += 1;
+                }
+                return partecipanti;
+                $("#partecipanti").text('[•] ' + partecipanti);
+              });
+
+							console.log('Puoi partecipare all’evento!');
+              $("#risultatoPosizione").text("Puoi partecipare all'evento!");
+              $("#azioneUnoEvento").css({"background": "none", "transition": "all 0.4s ease"});
+              $("#azioneDueEvento").css({"background": "none", "transition": "all 0.4s ease"});
+              $("#azioneTreEvento").css({"background": "none", "transition": "all 0.4s ease"});
+              //$("#eventoEventiBox").append('<div style="display: inline-block; width: 30%; margin-bottom: 3vh; margin-right: 5%; text-align: center;"><input name="file-select" type="file" id="immagineFile" class="file-select" accept="image/*;capture=camera" data-multiple-caption="{count} files selected" multiple/><label for="file-select" class="file-submit">immagine</button></div>');
+              //$("#eventoEventiBox").append('<div style="display: inline-block; width: 30%; margin-bottom: 3vh; text-align: center;"><input type="file" id="audioFile" class="file-select" accept="audio/*;capture=microphone" data-multiple-caption="{count} files selected" multiple/><label for="file-select" class="file-submit">rumore</button></div>');
+              $("#eventoEventiBox").append('<div style="border-top: 4px solid black; padding-top: 3vh; padding-bottom: 1vh; border-bottom: 4px solid black"><p style="font-size: 14px; margin-bottom:1.5em">Scatta delle immagini oppure riprendi qualche secondo in un video. Carica una cosa alla volta.</p><div id="imgsubmit" style="margin-bottom: 1.5em;"><input id="file-select" type="file" class="file-select" accept="image/*;capture=camera" /><button class="file-submit">carica (10 MB Max.)</button></div></div>');
+              //$("#eventoEventiBox").append('<div id="audiosubmit" style="margin-bottom: 1.5em;"><input type="file" class="file-select" accept="audio/*;capture=microphone" /><button class="file-submit">carica rumore</button></div>');
+/*border-top: 4px solid black;
+    padding-top: 3vh;
+             if (document.querySelector('.file-select')) {
+                document.querySelector('.file-select').addEventListener('change', handleFileUploadChange);
+              }
+              if (document.querySelector('.file-submit')) {
+                document.querySelector('.file-select').addEventListener('click', handleFileUploadSubmit);
+              }
+*/
+              buttonVerificaPosizione.classList.add("hide");
+              document.querySelector('.file-select').addEventListener('change', handleFileUploadChange);
+              document.querySelector('.file-submit').addEventListener('click', handleFileUploadSubmit);
+
+              var inputfile = document.getElementById('file-select');
+             var selectedFile;
+              function handleFileUploadChange(e) {
+                selectedFile = e.target.files[0];
+              }
+
+              var dataNuova = new Date();
+              var name = cosa + '_' + (dataNuova.getTime());
+              var nameFile = name.replace(/\s/g, '');
+              var nameFileLowerCase = nameFile.toLowerCase();
+              var namePathLowerCase = cosa.toLowerCase();
+
+              console.log(nameFileLowerCase);
+
+              var barraFile = $('#barraFile');
+              function handleFileUploadSubmit(e) {
+                if (selectedFile) {
+                  var fileExt= inputfile.value.split('.')[1];
+                  console.log(fileExt);
+                  var metadata = {
+                    contentType: selectedFile.type
+                  }
+                  console.log(selectedFile.type);
+                  var uploadRef = storageRef.child('immagini/' + cosa + '/' + nameFileLowerCase + '.' + fileExt);
+                  var uploadImg = uploadRef.put(selectedFile, metadata);
+                  var imgCompleter = new $.Deferred();
+                  uploadImg.on('state_changed', function(snapshot) {
+                  // Observe state change events such as progress, pause, and resume
+                  var progress =  (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                  console.log('upload progress is: ' + progress);
+                  var progressInt = parseInt(progress);
+                  barraFile.show();
+                  $("#progressoTesto").text(progressInt);
+                  switch (snapshot.state) {
+                    case firebase.storage.TaskState.PAUSED: // or 'paused'
+                      $("#progressoTesto").text("Caricamento in pausa");
+                      break;
+                    case firebase.storage.TaskState.RESUMED: // or 'paused'
+                      $("#progressoTesto").text("Caricamento ripreso");
+                      break;
+                    case firebase.storage.TaskState.RUNNING: // or 'running'
+                      console.log('Upload is running');
+                      $("#progressoTesto").text(progressInt);
+                      //alert("Invio il file:" + parseInt(progress) + '/100');
+
+                      break;
+                  }
+                }, function(error) {
+                  // Handle unsuccessful uploads
+                      imgCompleter.reject(error);
+                      console.log('Errore mentre caricavo il file', error);
+                }, function() {
+                      console.log('New pic uploaded. Size:', uploadImg.snapshot.totalBytes, 'bytes.');
+                       uploadImg.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                        console.log('File disponibile al seguente url:', downloadURL);
+                         $("#galleriaStorage").append('<img src="' + downloadURL + '"/>');
+                      });
+
+                  $("#progressoTesto").text('File caricato');
+                  $(".file-select").val('');
+                  console.log('success');
+                  barraFile.hide();
+                });
+                } else {
+                  barraFile.show();
+                  $("#progressoTesto").text("Nessun file selezionato. Selezionane uno e poi caricalo!");
+                }
+                /*return Promise.all([imgCompleter.promise()]).then(urls => {
+                  let newPostKey = this.database.ref('/posts').push().key;
+                  let update = {};
+                  update[`/posts/${newPostKey}`] = {
+                    full_url: urls[0],
+                    text: text,
+                    timestamp: firebase.database.ServerValue.TIMESTAMP,
+                    full_storage_uri: uploadRef.toString(),
+                    author: {
+                      uid: this.auth.currentUser.uid
+                    }
+                  };
+                  update[`/people/${this.auth.currentUser.uid}/posts/${newPostKey}`] = true;
+                  update[`/feed/${this.auth.currentUser.uid}/${newPostKey}`] = true;
+                  this.database.ref().update(update).then(() => newPostKey);
+                });*/
+              }
+						} else {
+							console.log('Si prega di raggiungere il punto dell’evento per svelare le azioni sottostanti.');
+              $("#risultatoPosizione").text("Si prega di raggiungere il punto dell’evento per svelare le azioni sottostanti.");
+              //$("eventoEventiBox").append("<div>Tocca l'indirizzo in alto per aprire il percorso sulle mappe.</div>");
+              buttonVerificaPosizione.classList.remove("hide");
+            }
+          }
+/*
+          storageRef.child('immagini/' + cosa + '/' + nameFileLowerCase + '.' + fileExt).getDownloadURL().then(function (url) {
+
+            // This can be downloaded directly:
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob';
+            xhr.onload = function (event) {
+              var blob = xhr.response;
+            };
+            xhr.open('GET', url);
+            xhr.send();
+
+            // Or inserted into an <img> element:
+            var img = document.getElementById('myimg');
+            img.src = url;
+          }).catch(function (error) {
+            // Handle any errors
+          });
+*/
+          function showError(error) {
+						switch (error.code) {
+							case error.PERMISSION_DENIED:
+
+								$("#eventoEventiBox").append("<div>" + "La richiesta di geolocalizzazione è stata rifiutata. <br>Attiva la geolocalizzazione per partecipare!" + "</div>");
+								break;
+							case error.POSITION_UNAVAILABLE:
+								$("#eventoEventiBox").append("<div>" + "Le informazioni sulla posizione non sono disponibili. Attiva la geolocalizzazione sulle impostazioni del tuo dispositivo." + "</div>");
+								break;
+							case error.TIMEOUT:
+								$("#eventoEventiBox").append("<div>" + "Controlla la connessione" + "</div>");
+								break;
+							case error.UNKNOWN_ERROR:
+								$("#eventoEventiBox").append("<div>" + "Qualcosa è andato storto..." + "</div>");
+								break;
+						}
+					}
+
+          //getLocation();
+				}
+			}
+		}
+
+		// Errore dati
+		function erroreDati(err) {
+			console.log('Error!')
+			console.log(err);
+			alert("Houston!");
+		}
+	}
+
+  function mapsSelector() {
+      var coordinateEventoLat = $("#coordinateEventoLat").text(); // creare due div con solo i numeri delle coordinate evento. .empty() quando chiudo finestra
+      var coordinateEventoLng = $("#coordinateEventoLng").text(); // creare due div con solo i numeri delle coordinate evento. .empty() quando chiudo finestra
+      var coordinatePartecipanteLat = $("#coordinatePartecipanteLat").text(); // creare due div con solo i numeri delle coordinate evento. .empty() quando chiudo finestra
+      var coordinatePartecipanteLng = $("#coordinatePartecipanteLng").text(); // creare due div con solo i numeri delle coordinate evento. .empty() quando chiudo finestra
+      //console.log(coordinateEventoLat);
+      //console.log(coordinateEventoLng);
+    if /* if we're on iOS, open in Apple Maps */
+      ((navigator.platform.indexOf("iPhone") != -1) ||
+      (navigator.platform.indexOf("iPad") != -1) ||
+      (navigator.platform.indexOf("iPod") != -1))
+      window.open("maps://maps.google.com/maps?daddr=" + coordinateEventoLat + "," + coordinateEventoLng + "&amp;ll=");
+    else /* else use Google */
+      window.open("https://maps.google.com/maps?daddr=" + coordinateEventoLat + "," + coordinateEventoLng + "&amp;ll=");
+  }
+
+</script>
+</html>
