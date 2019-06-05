@@ -1,3 +1,8 @@
+$("input").change(function() {
+  var inputs = $(this).closest('form').find(':input');
+  inputs.eq( inputs.index(this)+ 1 ).focus();
+});
+
 entraButton.classList.add("hide");
 // Click entra event listener
 entraButton.addEventListener('click', function () {
@@ -39,10 +44,10 @@ function prendiDati(data) {
 		var k = keys[i];
 		var cosa = eventi[k].cosa;
 		var place = eventi[k].place;
-		var quandoGiorno = eventi[k].giorno;
-		var quandoMese = eventi[k].mese;
-		var da = eventi[k].from;
-		var to = eventi[k].to;
+		//var quandoGiorno = eventi[k].giorno;
+		//var quandoMese = eventi[k].mese;
+		//var da = eventi[k].from;
+		//var to = eventi[k].to;
 		//console.log(cosa, place, quandoGiorno, quandoMese, da, to);
 	}
 }
@@ -102,12 +107,12 @@ function inserisciEventoFirebase(value) {
 		//prendiInfo();
     var a = $("#place").val(),
         b = $("#cosa").val(),
-        quandoGiorno = parseInt($("#quandoGiorno").val(), 10),
-        quandoMese = parseInt($("#quandoMese").val(), 10),
+        //quandoGiorno = parseInt($("#quandoGiorno").val(), 10),
+        //quandoMese = parseInt($("#quandoMese").val(), 10),
         //quandoGiorno = 17,
         //quandoMese = 2,
-        d = $("#daOra").val(),
-				e = $("#aOra").val(),
+        //d = $("#daOra").val(),
+				//e = $("#aOra").val(),
         azioneUno = $("#azioneUno").val(),
         azioneDue = $("#azioneDue").val(),
         azioneTre = $("#azioneTre").val(),
@@ -124,10 +129,10 @@ function inserisciEventoFirebase(value) {
 					var f = {
 						place: a,
 						cosa: b,
-            giorno: quandoGiorno,
-            mese: quandoMese,
-						from: d,
-						to: e,
+            //giorno: quandoGiorno,
+            //mese: quandoMese,
+						//from: d,
+						//to: e,
 						partecipanti: 1,
 						coordinate: coordinates,
 						num: numero,

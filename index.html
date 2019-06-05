@@ -4,9 +4,23 @@
 <head>
 	<meta charset=utf-8>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Crea, esplora, partecipa">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <title>—</title>
+  <title>spaziazioni • crea, esplora, raggiungi, partecipa</title>
+  <meta name="author" content="andrea zangheri">
+  <meta name="description" content="Crea, esplora, raggiungi, partecipa. Spaziazioni è un moltiplicatore di relazioni. Crea eventi nel cosmo ed esplorali attraverso movimento spaziale.">
+  <meta name="keywords" content="spaziazioni, eventi, crea, esplora, partecipa, mondo, globo, cosmo">
+  <meta name="robots" content="index, nofollow">
+  <!--  Social META Tags -->
+
+  <meta property="og:title" content="spaziazioni">
+  <meta property="og:description" content="Crea, esplora, raggiungi, partecipa. Spaziazioni è un moltiplicatore di relazioni.">
+  <meta property="og:image" content="https://spaziazioni.me/assets/images/spaziazioni-flag.jpg">
+  <meta property="og:url" content="https://spaziazioni.me">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta property="og:site_name" content="spaziazioni">
+  <meta name="twitter:image:alt" content="Spaziazioni Flag White and Black">
+
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -59,8 +73,13 @@
 		top: 20px;
 	}
 	.mapboxgl-ctrl-geocoder {
-		min-width: 100%;
-	}
+    min-width: 100%!important;
+    max-width: 100%!important;
+  }
+  .mapboxgl-ctrl-geocoder--icon-search{
+    display: none!important;
+    visibility: hidden!important;
+  }
 </style>
 </head>
 
@@ -185,11 +204,10 @@
           </li>
         </ul>
         </div>
-				<!--<p style="line-height: 1.3em; border-top: 4px solid black; margin: 3vh 3vw 3vh 0; padding-top: 3vh; font-size: 10px" class="footer-small">Progetto sviluppato all'Accademia di Belle Arti di Urbino * Dipartimento di Progettazione e Arti
-					Applicate * Scuola di Nuove Tecnologie dell'Arte * Diploma Accademico
-					di Primo Livello * Tesi di Diploma in Progettazione Multimediale * Relatore Marcello Signorile * Allievo Andrea
-					Zangheri * a.a. 2017/2018 * Sessione Straordinaria</p>
-				</div>-->
+				<p style="line-height: 1.3em; border-top: 4px solid black; margin: 3vh 3vw 3vh 0; padding-top: 3vh; font-size: 10px" class="footer-small">
+          v.0.6.1 (beta)
+        </p>
+				</div>
 		</div>
 	</div>
 </div>
@@ -207,12 +225,12 @@
 				</div>
 				<div id="map" style="display: none"></div>
 				<input class="form__input cosa" form="nuovoEvento" type="text" id="cosa" placeholder="Cosa" maxlength="30" required><br/>
-        <label>quando</label>
+        <!--<label>quando</label>
           <input class="form__input quando" form="nuovoEvento" type="text" id="quandoGiorno" value="__" placeholder="__" required><span>/</span>
           <input class="form__input quando" form="nuovoEvento" type="text" id="quandoMese" value="__" placeholder="__" required><br/>
         <label>ora </label>
           <input class="form__input daOra" form="nuovoEvento" type="text" id="daOra" placeholder="__" required maxlength="2" required><span>—</span>
-          <input class="form__input aOra" form="nuovoEvento" type="text" id="aOra" placeholder="__" required maxlength="2" required><br/>
+          <input class="form__input aOra" form="nuovoEvento" type="text" id="aOra" placeholder="__" required maxlength="2" required><br/>-->
         <label class="azioneLabel">*</label><input class="form__input azioneUno" form="nuovoEvento" type="text" id="azioneUno" placeholder="azione 1" maxlength="30" required><br/>
         <label class="azioneLabel">*</label><input class="form__input azioneDue" form="nuovoEvento" type="text" id="azioneDue" placeholder="azione 2" maxlength="30" ><br/>
         <label class="azioneLabel">*</label><input class="form__input azioneTre" form="nuovoEvento" type="text" id="azioneTre" placeholder="azione 3" maxlength="30" ><br/>
@@ -256,9 +274,6 @@
 				<a class="link-black" id="infoBtn" href="#"><h4>?</h4></a>
 			</li>
 			<li class="footer__list_pad">
-				<span class="link-black" href="#"><h4>v.0.6.1 (beta)</h4></span>
-			</li>
-			<li class="footer__list_pad">
 				<a class="link-black" id="creaBtn" href="#"><h4>crea</h4></a>
 			</li>
 		</ul>
@@ -282,12 +297,20 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css'
 type='text/css' />
+<!--<script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.css' type='text/css' />-->
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
  MY_ACCESS_TOKEN = 'pk.eyJ1IjoidHlwZXJyb3IiLCJhIjoiY2pzMmk5OTEzMDZ6ZDQ0dDlhOXZ1ZmpiaCJ9.mcgUo3mvobOjbzdYg6lxUQ';
  var mapboxClient = mapboxSdk({ accessToken: MY_ACCESS_TOKEN });
 </script>
 <script>
+$("input").change(function() {
+  var inputs = $(this).closest('form').find(':input');
+  inputs.eq( inputs.index(this)+ 1 ).focus();
+});
 var eventoBox = document.getElementById("evento");
 var eventoEventi = document.getElementById("eventoEventi");
 var infoBox = document.getElementById("info");
@@ -353,7 +376,7 @@ function onReady() {
 scene = new THREE.Scene();
 renderer = new THREE.WebGLRenderer({ alpha: true });
 //renderer.setClearColor(0xf2f2f2);
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(window.setPixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 container = document.getElementById("container");
@@ -399,7 +422,7 @@ controls.connect();
 				scene.add(mesh);
 
 				var helperGeometry = new THREE.SphereBufferGeometry(5000, 10, 10);
-				var helperMaterial = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true, transparent: true, opacity: 0.1});
+				var helperMaterial = new THREE.MeshBasicMaterial({color: 0xfafafa, wireframe: true, transparent: true, opacity: 0.1});
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				scene.add(helper);
 
@@ -636,7 +659,7 @@ controls.connect();
 
 				$("#eventoEventiBox").append('<div class="dove"><a class="link-black" href="#" onclick="mapsSelector()">' + place + "</a></div>");
 				$("#eventoEventiBox").append('<div class="cosa">' + cosa + "</div>");
-				$("#eventoEventiBox").append('<div class="quandoEvento"> quando ' + quandoGiorno + '/' + quandoMese + "</div>");
+				//$("#eventoEventiBox").append('<div class="quandoEvento"> quando ' + quandoGiorno + '/' + quandoMese + "</div>");
         if ((da) || (to)) {
           $("#eventoEventiBox").append('<div class="daOra">ora ' + da + ' — ' + to + "</div>");
         }
@@ -946,6 +969,5 @@ controls.connect();
     else /* else use Google */
       window.open("https://maps.google.com/maps?daddr=" + coordinateEventoLat + "," + coordinateEventoLng + "&amp;ll=");
   }
-
 </script>
 </html>

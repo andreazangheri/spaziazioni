@@ -16,6 +16,8 @@ var geocoder = new MapboxGeocoder({
   countries: "it",
   language: "it",
   //proximity: [12.912952, 43.909735],
+  //marker: false,
+  //mapboxgl: this.map,
   zoom: 12
 });
 
@@ -51,10 +53,16 @@ window.onload = function() {
 		"font-size": "12px",
 		"padding": "0px"
 	});
-	$('#mapboxGeocoder span').hide();
+  $('#mapboxGeocoder span').hide();
+
+  $('body')
+  .append($('<p id="move" style="border:4px solid black;margin:auto;padding: 15px;"><- esplora -></p>')
+  .hide()
+  .fadeIn(500)
+  );
 
 setTimeout(function () {
-
+  $('#move').fadeOut(500);
 }, 3000);
 };
 
