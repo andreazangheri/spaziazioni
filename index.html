@@ -6,19 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <title>spaziazioni • crea, esplora, raggiungi, partecipa</title>
+  <meta name="title" content="spaziazioni • crea, esplora, raggiungi, partecipa">
   <meta name="author" content="andrea zangheri">
-  <meta name="description" content="Crea, esplora, raggiungi, partecipa. Spaziazioni è un moltiplicatore di relazioni. Crea eventi nel cosmo ed esplorali attraverso movimento spaziale.">
+  <meta name="description" content="Spaziazioni è un moltiplicatore di relazioni. Crea eventi nel cosmo. Esplora lo spazio attraverso il movimento del corpo. Raggiungi il luogo. Partecipa.">
   <meta name="keywords" content="spaziazioni, eventi, crea, esplora, partecipa, mondo, globo, cosmo">
   <meta name="robots" content="index, nofollow">
   <!--  Social META Tags -->
 
-  <meta property="og:title" content="spaziazioni">
-  <meta property="og:description" content="Crea, esplora, raggiungi, partecipa. Spaziazioni è un moltiplicatore di relazioni.">
+  <meta property="og:title" content="spaziazioni • crea, esplora, raggiungi, partecipa">
+  <meta property="og:description" content="Spaziazioni è un moltiplicatore di relazioni. Crea eventi nel cosmo. Esplora lo spazio attraverso il movimento del corpo. Raggiungi il luogo. Partecipa.">
   <meta property="og:image" content="https://spaziazioni.me/assets/images/spaziazioni-flag.jpg">
   <meta property="og:url" content="https://spaziazioni.me">
   <meta name="twitter:card" content="summary_large_image">
 
-  <meta property="og:site_name" content="spaziazioni">
+  <meta property="og:site_name" content="spaziazioni • crea, esplora, raggiungi, partecipa">
   <meta name="twitter:image:alt" content="Spaziazioni Flag White and Black">
 
   <!-- Disable tap highlight on IE -->
@@ -104,7 +105,7 @@
 	</header>
 	<div class="evento" id="info">
   <span class="close">&times;</span>
-	<div class="evento-scontenuto" id="infoBox">
+	<div class="evento-scontenuto infobox" id="infoBox">
     <div class="right" style="overflow: auto;">
       <div class="form">
 			<div class="full">
@@ -291,16 +292,16 @@
  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-messaging.js"></script>
  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-functions.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- MAPBOX API -->
+<!-- MAPBOX API
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css'
-type='text/css' />
-<!--<script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+type='text/css' />-->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.min.js'></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.css' type='text/css' />-->
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.3.0/mapbox-gl-geocoder.css' type='text/css' />
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
  MY_ACCESS_TOKEN = 'pk.eyJ1IjoidHlwZXJyb3IiLCJhIjoiY2pzMmk5OTEzMDZ6ZDQ0dDlhOXZ1ZmpiaCJ9.mcgUo3mvobOjbzdYg6lxUQ';
@@ -361,6 +362,7 @@ firebase.initializeApp(config);
 <script src="js/lib/DeviceOrientationController.js"></script>
 
 <script>
+
 if (WEBGL.isWebGLAvailable() === false) {
 	document.body.appendChild(WEBGL.getWebGLErrorMessage());
 }

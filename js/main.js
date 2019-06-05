@@ -6,7 +6,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidHlwZXJyb3IiLCJhIjoiY2pzMmk5OTEzMDZ6ZDQ0dDlhO
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/light-v10',
-  //center: [12.912952, 43.909735],
+  proximity: [12.912952, 43.909735],
+  center: [12.912952, 43.909735],
   zoom: 12
 });
 
@@ -15,9 +16,9 @@ var geocoder = new MapboxGeocoder({
   placeholder: "dove (via, città, luogo)",
   countries: "it",
   language: "it",
-  //proximity: [12.912952, 43.909735],
-  //marker: false,
-  //mapboxgl: this.map,
+  proximity: [12.912952, 43.909735],
+  marker: false,
+  mapboxgl: this.map,
   zoom: 12
 });
 
@@ -55,8 +56,24 @@ window.onload = function() {
 	});
   $('#mapboxGeocoder span').hide();
 
+  var isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+  var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+  if (isSafari && iOS) {
+    const id = setTimeout(() => alert('Per l’esperienza migliore abilita "Movimento e Orientamento" sul tuo iPhone andando in Impostazioni > Safari > Movimento e orientamento'), 500);
+
+    window.addEventListener('deviceorientation', event => {
+      clearTimeout(id);
+      // ...
+    });
+  } else if(isSafari) {
+
+  }
+
+
+
   $('body')
-  .append($('<p id="move" style="border:4px solid black;margin:auto;padding: 15px;"><- esplora -></p>')
+  .append($('<p id="move" style="border:4px solid black;margin:auto;padding: 15px;width:60vw;line-height:2em;text-align:center;"><- esplora lo spazio con il movimento del corpo -></p>')
   .hide()
   .fadeIn(500)
   );
