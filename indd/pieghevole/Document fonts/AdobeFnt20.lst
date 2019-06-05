@@ -1,0 +1,133 @@
+%!Adobe-FontList 1.20
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:GTZirkon-LightItalic
+FamilyName:GT Zirkon
+StyleName:Light Italic
+MenuName:GT Zirkon Light
+StyleBits:1
+WeightClass:300
+WidthClass:5
+AngleClass:1
+FullName:GT Zirkon Light Italic
+WritingScript:Roman
+OutlineFileName:/Users/andreazangheri/Sites/spaziazioni/indd/pieghevole/Document fonts/GTZirkon-LightItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:112584
+FileModTime:558511180
+NameArray:0,Mac,4,GT Zirkon Light Italic
+NameArray:0,Win,1,GT Zirkon Light
+NameArray:0,Win,16,GT Zirkon
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:GTZirkon-Book
+FamilyName:GT Zirkon
+StyleName:Book
+MenuName:GT Zirkon Book
+StyleBits:0
+WeightClass:350
+WidthClass:5
+AngleClass:0
+FullName:GT Zirkon Book
+WritingScript:Roman
+OutlineFileName:/Users/andreazangheri/Sites/spaziazioni/indd/pieghevole/Document fonts/GTZirkon-Book.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:107388
+FileModTime:558511180
+NameArray:0,Mac,4,GT Zirkon Book
+NameArray:0,Win,1,GT Zirkon Book
+NameArray:0,Win,16,GT Zirkon
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:GTZirkon-Light
+FamilyName:GT Zirkon
+StyleName:Light
+MenuName:GT Zirkon Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:GT Zirkon Light
+WritingScript:Roman
+OutlineFileName:/Users/andreazangheri/Sites/spaziazioni/indd/pieghevole/Document fonts/GTZirkon-Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:107048
+FileModTime:558511180
+NameArray:0,Mac,4,GT Zirkon Light
+NameArray:0,Win,1,GT Zirkon Light
+NameArray:0,Win,16,GT Zirkon
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:GTZirkon-Bold
+FamilyName:GT Zirkon
+StyleName:Bold
+MenuName:GT Zirkon Bold
+StyleBits:0
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:GT Zirkon Bold
+WritingScript:Roman
+OutlineFileName:/Users/andreazangheri/Sites/spaziazioni/indd/pieghevole/Document fonts/GTZirkon-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:110036
+FileModTime:558511182
+NameArray:0,Mac,4,GT Zirkon Bold
+NameArray:0,Win,1,GT Zirkon Bold
+NameArray:0,Win,16,GT Zirkon
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:GTZirkon-BoldItalic
+FamilyName:GT Zirkon
+StyleName:Bold Italic
+MenuName:GT Zirkon Bold
+StyleBits:1
+WeightClass:700
+WidthClass:5
+AngleClass:1
+FullName:GT Zirkon Bold Italic
+WritingScript:Roman
+OutlineFileName:/Users/andreazangheri/Sites/spaziazioni/indd/pieghevole/Document fonts/GTZirkon-BoldItalic.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:115188
+FileModTime:558511182
+NameArray:0,Mac,4,GT Zirkon Bold Italic
+NameArray:0,Win,1,GT Zirkon Bold
+NameArray:0,Win,16,GT Zirkon
+%EndFont
+
