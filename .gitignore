@@ -129,5 +129,6 @@ typings/
 
 dist/
 
-.firebase/hosting..cache
-indd/
+.firebase/**/*
+
+.txt
