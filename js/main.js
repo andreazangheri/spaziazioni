@@ -70,8 +70,6 @@ window.onload = function() {
 
   }
 
-
-
   $('body')
   .append($('<p id="move" style="border:4px solid black;margin:auto;padding: 15px;width:60vw;line-height:2em;text-align:center;"><- esplora lo spazio con il movimento del corpo -></p>')
   .hide()
