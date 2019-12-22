@@ -127,8 +127,8 @@ typings/
 # Ignore sketch files
 *.sketch
 
-dist/
+# Ignore Wordpress Local by Flywheel Files and Folder
 
-.firebase/**/*
+wp-includes/**/*
 
-.txt
+wp-config.php
